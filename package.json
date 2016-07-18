@@ -1,5 +1,5 @@
 {
-  "name": "tracedpromise",
+  "name": "@lightstep/tracedpromise",
   "description": "A Promise class modified to allow use of OpenTracing",
   "version": "1.0.0",
   "license": "MIT",

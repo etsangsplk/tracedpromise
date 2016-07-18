@@ -31,3 +31,15 @@ clean:
 .PHONY: lint
 lint:
 	$(CMD_ESLINT) --color --fix -c .eslintrc src
+
+.PHONY: publish
+publish: build lint
+	@if [ $(shell git symbolic-ref --short -q HEAD) = "master" ]; then exit 0; else \
+	echo "Current git branch does not appear to be 'master'. Refusing to publish."; exit 1; \
+	fi
+	npm version patch
+	make build # rebuild with the new version number
+	git push
+	git push --tags
+	npm whoami
+	npm publish --access=public
