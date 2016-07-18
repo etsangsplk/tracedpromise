@@ -63,9 +63,7 @@ export default class TracedPromise {
      *        standard ES6 Promise.
      */
     constructor(parent, name, callback) {
-        let span = opentracing.startSpan(name, {
-            reference : opentracing.childOf(parent.context()),
-        });
+        let span = opentracing.startSpan(name, { childOf : parent });
         let wrappedCallback = (resolve, reject) => callback(
             wrapResolve(span, resolve),
             wrapReject(span, reject)
