@@ -4,4 +4,10 @@
 
 ## Getting started
 
+Install with `npm`. (*Note: you may need a relatively recent version of NPM to support scoped packages*.)
+
+```bash
+npm install --save @lightstep/tracedpromise
+```
+
 See `src/examples/demo.js` for a short example.
