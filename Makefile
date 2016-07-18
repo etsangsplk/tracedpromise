@@ -14,10 +14,19 @@ demo: build
 # build the ES6 JavaScript files and generate source maps
 #
 .PHONY: build
-build: $(COMPILED_JS)
+build: node_modules $(COMPILED_JS)
 lib/%.js: src/%.js
 	mkdir -p $(@D)
 	$(CMD_BABEL) --presets es2015 $< -o $@ --source-maps
+
+node_modules:
+	npm install
+
+.PHONY: clean
+clean:
+	rm -rf node_modules/
+	rm -rf lib/
+	mkdir lib
 
 .PHONY: lint
 lint:
