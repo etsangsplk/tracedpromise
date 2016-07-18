@@ -11,7 +11,7 @@ require('source-map-support');
 // tracing data to your project.
 opentracing.initGlobalTracer(lightstep.tracer({
     access_token   : '{your_access_token}',
-    component_name : 'node/promises',
+    component_name : 'TracedPromise',
 }));
 
 // Set up an initial span to track all the subsequent work
