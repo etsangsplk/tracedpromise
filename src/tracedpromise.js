@@ -54,13 +54,13 @@ export default class TracedPromise {
     /**
      * Constructs anew TracedPromise
      *
-     * @param  {Span} parent - the parent of the span created by this promise.
-     *     Pass `null` for a promise that does not have a parent.
-     * @param  {string} name - name to use for the span created internally by
-     *     the TracedPromise.
-     * @param  {Function} callback - callback to use to resolve the promise. The
-     *     signature and behavior should be that of a callback passed to a
-     *     standard ES6 Promise.
+     * @param {Span} parent - the parent of the span created by this promise.
+     *        Pass `null` for a promise that does not have a parent.
+     * @param {string} name - name to use for the span created internally by
+     *        the TracedPromise.
+     * @param {Function} callback - callback to use to resolve the promise. The
+     *        signature and behavior should be that of a callback passed to a
+     *        standard ES6 Promise.
      */
     constructor(parent, name, callback) {
         let span = opentracing.startSpan(name, {
